@@ -1,12 +1,13 @@
-# [Project Name]
-
-> [One-line what it is / why it exists.]
+# open-health-server
 
 <!-- =========================
      STATUS BADGES
      ========================= -->
 <p align="center">
   <img alt="Status: Planning" src="https://img.shields.io/badge/Status-Planning-lightgrey">
+  <img alt="Category: Software" src="https://img.shields.io/badge/Category-Software-0366d6">
+  <img alt="Category: Self-Hosting" src="https://img.shields.io/badge/Category-Self--Hosting-1f6feb">
+  <img alt="Version" src="https://img.shields.io/badge/Version-ALPHA-orange">
 </p>
 
 <!-- <img alt="Status: In Progress" src="https://img.shields.io/badge/Status-In%20Progress-blue">
@@ -22,20 +23,6 @@
 <img alt="Status: Broken" src="https://img.shields.io/badge/Status-Broken-critical">
 <img alt="Status: Experimental" src="https://img.shields.io/badge/Status-Experimental-purple"> -->
 
-<!-- =========================
-     CATEGORY BADGES
-     ========================= -->
-<p align="center">
-  <img alt="Category: Software" src="https://img.shields.io/badge/Category-Software-0366d6">
-  <img alt="Category: Self-Hosting" src="https://img.shields.io/badge/Category-Self--Hosting-1f6feb">
-</p>
-
-<!-- =========================
-     META BADGES
-     ========================= -->
-<p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/Version-ALPHA-orange">
-</p>
 
 
 ## Overview
