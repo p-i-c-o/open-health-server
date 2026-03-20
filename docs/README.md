@@ -1,3 +1,4 @@
+[Go back to repo home](../README.md)
 # open-health-server Docs
 
 Available sections:
