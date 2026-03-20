@@ -7,7 +7,7 @@
   <img alt="Status: Planning" src="https://img.shields.io/badge/Status-Planning-lightgrey">
   <img alt="Category: Software" src="https://img.shields.io/badge/Category-Software-0366d6">
   <img alt="Category: Self-Hosting" src="https://img.shields.io/badge/Category-Self--Hosting-1f6feb">
-  <img alt="Version" src="https://img.shields.io/badge/Version-ALPHA-orange">
+  <!-- <img alt="Version" src="https://img.shields.io/badge/Version-ALPHA-orange"> -->
 </p>
 
 <!-- <img alt="Status: In Progress" src="https://img.shields.io/badge/Status-In%20Progress-blue">
