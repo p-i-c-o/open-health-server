@@ -1,4 +1,4 @@
-[Go back to repo home](../README.md)
+[Go back to repo home](https://github.com/p-i-c-o/open-health-server)
 # open-health-server Docs
 
 Available sections:
