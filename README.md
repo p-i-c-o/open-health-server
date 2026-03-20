@@ -62,9 +62,10 @@
 - [Tradeoff #1] -->
 
 ## Roadmap
-- [ ] [next milestone]
-- [ ] [next milestone]
-- [ ] [stretch goal]
+- [ ] Plan data flows
+- [ ] Plan integrations
+- [ ] Plan back-end logic
+- [ ] Plan front-end logic
 
 <!-- ## Results
 - **What works:** [bullet list]
@@ -92,4 +93,4 @@
 - [References / links] -->
 
 ## Contact
-**Telegram**: '@picolovesroot'
+**Telegram**: @picolovesroot
