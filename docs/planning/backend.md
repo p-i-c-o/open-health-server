@@ -6,6 +6,10 @@
 
 
 ## Data Storage Design
+**FK**: Foreign Key (person identifier)
+
+**PK**: Primary Key (row identifier)
+
 ```mermaid
 erDiagram
   servers ||--o{ people : has
