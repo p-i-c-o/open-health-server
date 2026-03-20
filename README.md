@@ -67,6 +67,9 @@
 - [ ] Plan back-end logic
 - [ ] Plan front-end logic
 
+## Docs
+Available [here](docs/README.md)
+
 <!-- ## Results
 - **What works:** [bullet list]
 - **What doesn’t (yet):** [bullet list]
