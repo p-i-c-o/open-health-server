@@ -10,3 +10,4 @@ Available files:
 - [Metrics](metrics.md)
 - [Integrations](integrations.md)
 - [Backend](backend.md)
+- [Identity Management](identity-management.md)
