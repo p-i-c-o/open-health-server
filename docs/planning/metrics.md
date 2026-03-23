@@ -1,105 +1,377 @@
 [Go back to planning home](README.md)
-
 # Metrics
-
 > This document outlines what metrics open-health-server tracks, categorised into umbrella groups.
-
 ## Notes on metric tracking
-
 Metrics will be saved in the Metric system, not the Imperial. Base 10 metrics are easier to deal with and are easier to integrate into external services.
+> Metrics are broken into 4 different types. **Samples** are continuous time-series measurements. **Sessions** are activities with a start and end. **Logs** are discrete one-time entries. **Attributes** are slow-changing facts about a person, versioned over time. Derived metrics (BMI, productivity %, ATL/CTL, etc.) are computed at query time and never stored.
 
-## 1. Body composition
-- Weight
-- BMI
-- Body fat %
-- Lean muscle mass
-- Bone density (DEXA)
-- Measurements
-  - Waist
-  - Hips
-  - Chest
-  - Arms
-  - Thighs
+---
 
-## 2. Fitness & movement
-- Steps / daily activity
-- Active calories burned
-- Workouts
-  - Type (cardio, strength, flexibility, sport)
-  - Duration
-  - Volume (sets, reps, load)
-  - Distance
-  - Pace / speed
-- VO2 max
-- Resting heart rate trend
-- Recovery score
-- Flexibility / mobility assessments
+## Samples
+*Continuous measurements, timestamped, high volume*
 
-## 3. Sleep
-- Total duration
-- Sleep stages
-  - REM
-  - Deep
-  - Light
-  - Awake
-- Sleep onset latency
-- Wake events / interruptions
-- HRV (overnight)
-- Sleep consistency / regularity
+- Cardiovascular
+  - Heart rate (bpm)
+  - HRV daytime (ms)
+  - HRV overnight (ms)
+  - Blood pressure systolic (mmHg)
+  - Blood pressure diastolic (mmHg)
+  - ECG readings (mV)
+- Respiratory
+  - SpO2 (%)
+  - Respiratory rate (breaths/min)
+- Metabolic
+  - Blood glucose (mmol/L)
+  - Cortisol (nmol/L)
+  - Testosterone (nmol/L)
+  - Oestrogen (pmol/L)
+  - Body temperature (°C)
+  - Basal body temperature (°C)
+- Neurological & skin
+  - Skin conductance / EDA (µS)
+  - Galvanic skin response (µS)
+- Activity
+  - Steps (count)
+  - Active calories burned (kcal)
+  - Standing time (min)
+  - Floors climbed (count)
+  - Cycling power (W)
+  - Water drunk (mL)
+
+---
+
+## Sessions
+*Activities with a start and end time*
+
+- Default sport metrics
+  *Applied to every sport session unless otherwise specified*
+  - Duration (min)
+  - Average heart rate (bpm)
+  - Max heart rate (bpm)
+  - Heart rate zone distribution (% per zone)
+  - Active calories burned (kcal)
+  - Perceived exertion / RPE (1–10)
+  - Notes (free text)
+- Running
+  - Distance (km)
+  - Pace (min/km)
+  - Cadence (steps/min)
+  - Ground contact time (ms)
+  - Vertical oscillation (cm)
+  - Stride length (m)
+  - Elevation gain (m)
+  - Split times (min/km per km)
+- Cycling
+  - Distance (km)
+  - Speed average (km/h)
+  - Speed max (km/h)
+  - Power output average (W)
+  - Power output max (W)
+  - Cadence (rpm)
+  - Elevation gain (m)
+  - FTP (W)
+- Swimming
+  - Total distance (m)
+  - Pool length (m)
+  - Strokes per length (count)
+  - SWOLF score (count)
+  - Stroke type (freestyle / breaststroke / backstroke / butterfly)
+  - Pace per 100m (min/100m)
+  - Rest intervals (s)
+- Rowing
+  - Distance (m)
+  - Split time (min/500m)
+  - Stroke rate (spm)
+  - Drive length (m)
+  - Drive force average (N)
+  - Drive force max (N)
+  - Work per stroke (J)
+  - Drag factor (unitless)
+- Strength training
+  - Exercise name (free text)
+  - Sets (count)
+  - Reps per set (count)
+  - Load per set (kg)
+  - Rest between sets (s)
+  - 1RM estimate (kg)
+  - Time under tension (s)
+- HIIT / circuit training
+  - Rounds (count)
+  - Work interval (s)
+  - Rest interval (s)
+  - Exercises per round (count)
+  - Total work time (min)
+- Yoga / flexibility
+  - Style (hatha / vinyasa / yin / restorative / etc.)
+  - Poses logged (free text)
+- Climbing
+  - Wall type (boulder / top rope / lead)
+  - Grade (font / V-scale)
+  - Routes attempted (count)
+  - Routes completed (count)
+  - Max grade completed
+- Hiking / walking
+  - Distance (km)
+  - Elevation gain (m)
+  - Elevation loss (m)
+  - Terrain type (trail / urban / mountain)
+- Field & team sports
+  *Football, basketball, rugby, hockey, volleyball, handball, etc.*
+  - Distance covered (km)
+  - Sprints (count)
+  - High intensity efforts (count)
+  - Position played (free text)
+  - Rugby-specific
+    - Tackles (count)
+- Racket sports
+  *Tennis, padel, squash, badminton, table tennis, etc.*
+  - Sets played (count)
+  - Games played (count)
+  - Points won (count)
+  - Points lost (count)
+- Martial arts
+  *BJJ, boxing, wrestling, MMA, judo, karate, muay thai, etc.*
+  - Discipline (free text)
+  - Rounds (count)
+  - Round duration (min)
+  - Sparring (yes / no)
+- Skiing / snowboarding
+  - Runs (count)
+  - Total vertical drop (m)
+  - Max speed (km/h)
+  - Distance (km)
+- Golf
+  - Holes played (count)
+  - Score (strokes)
+  - Putts (count)
+  - Fairways hit (count)
+  - Greens in regulation (count)
+  - Distance walked (km)
+- Triathlon
+  - Swim distance (m)
+  - Swim time (min)
+  - Bike distance (km)
+  - Bike time (min)
+  - Run distance (km)
+  - Run time (min)
+  - T1 transition time (s)
+  - T2 transition time (s)
+- Gymnastics
+  - Apparatus (floor / beam / bars / vault / rings / etc.)
+  - Skills practiced (free text)
+- Dance
+  - Style (salsa / ballet / contemporary / etc.)
+- Sleep
+  - Total duration (h)
+  - REM duration (min)
+  - Deep sleep duration (min)
+  - Light sleep duration (min)
+  - Awake time (min)
+  - Sleep onset latency (min)
+  - Wake events (count)
+  - Sleep consistency / regularity (score)
+  - Snoring duration (min)
+  - Snoring intensity (dB)
 - Naps
-
-## 4. Nutrition
-- Calories (in)
-- Macronutrients
-  - Protein
-  - Carbohydrates
-  - Fat
-  - Fibre
-- Micronutrients
-  - Vitamins (A, B, C, D, E, K…)
-  - Minerals (iron, magnesium, zinc…)
-- Hydration (water intake)
-- Meal timing / eating window
-- Fasting duration
-- Meal composition notes
-
-## 5. Mental & cognitive
-- Mood (scale / categorical)
-- Stress level
-- Anxiety level
-- Perceived energy level
-- Focus / flow sessions (duration, quality)
-- Journaling / free text entries
-- Meditation / mindfulness sessions
-- Gratitude / positive affect logs
-
-## 6. Vitals & biometrics
-- Heart rate (resting, max, zones)
-- Blood pressure (systolic / diastolic)
-- SpO2 (blood oxygen)
-- Body temperature
-- Respiratory rate
-- HRV (daytime / spot checks)
-- Blood glucose (CGM or manual)
-- Skin conductance / EDA
-
-## 7. Social & habits
-- Screen time (total, by app category)
-- Social interactions (in-person, quality rating)
-- Time outdoors
+  - Duration (min)
+  - Quality (1–5)
+- Fasting
+  - Duration (h)
+  - Type (intermittent / extended / etc.)
+- Focus / flow sessions
+  - Duration (min)
+  - Quality (1–5)
+  - Task type (free text)
+- Meditation / mindfulness
+  - Duration (min)
+  - Style (guided / unguided / breathwork / body scan / etc.)
+- Eating windows
+  - Window duration (h)
+  - Eating speed (slow / normal / fast)
+- Productivity sessions
+  - Activity type (work / play / rest)
+  - Duration (min)
+  - Tasks completed (count)
 - Productive work hours
-- Routine adherence
-  - Morning routine
-  - Evening routine
-- Hobbies / leisure activities logged
-- Travel / time zone changes
+  - Duration (h)
+  - Deep work vs shallow work (deep / shallow)
+- Recovery sessions
+  - Cold exposure
+    - Duration (min)
+    - Temperature (°C)
+  - Heat exposure
+    - Duration (min)
+    - Temperature (°C)
+  - Foam rolling / stretching (min)
+  - Massage / bodywork (min)
+  - Physio / chiro (min)
+- Wellness sessions
+  - Type (therapy / coaching / CBT / osteo / etc.)
+  - Duration (min)
+- Social interactions
+  - Duration (min)
+  - Quality (1–5)
+  - Setting (in-person / remote)
+- Screen time
+  - Total (min)
+  - By app category (min per category)
+- Time outdoors
+  - Duration (min)
+  - Activity type (free text)
+- Travel
+  - Origin (free text)
+  - Destination (free text)
+  - Time zone offset (h)
+  - Jet lag duration (days)
 
-## 8. Substances
-- Caffeine (mg, timing)
-- Alcohol (units, timing)
-- Nicotine / tobacco
-- Cannabis
-- Supplements
-  - Type, dose, timing
-- Medications (non-diagnostic, logged for correlation)
-  - Type, dose, timing
+---
+
+## Logs
+*Discrete one-time entries, no duration*
+
+- Nutrition
+  - Meal name / description (free text)
+  - Calories (kcal)
+  - Protein (g)
+  - Carbohydrates (g)
+  - Fat (g)
+  - Fibre (g)
+  - Sodium (mg)
+  - Vitamins
+    - A (µg)
+    - B1 thiamine (mg)
+    - B2 riboflavin (mg)
+    - B3 niacin (mg)
+    - B6 (mg)
+    - B9 folate (µg)
+    - B12 (µg)
+    - C (mg)
+    - D (µg)
+    - E (mg)
+    - K (µg)
+  - Minerals
+    - Iron (mg)
+    - Magnesium (mg)
+    - Zinc (mg)
+    - Calcium (mg)
+    - Potassium (mg)
+    - Phosphorus (mg)
+    - Selenium (µg)
+  - Glycaemic index (unitless)
+  - Glycaemic load (unitless)
+  - Meal composition notes (free text)
+- Mood & mental state
+  - Mood (1–10)
+  - Stress level (1–10)
+  - Anxiety level (1–10)
+  - Perceived energy level (1–10)
+  - Social battery level (1–10)
+  - Libido (1–10)
+  - Life satisfaction (1–10)
+  - Gratitude entry (free text)
+  - Journal entry (free text)
+  - Dream log (free text)
+- Physical state
+  - Pain log
+    - Location (body region)
+    - Intensity (1–10)
+    - Type (sharp / dull / aching / burning)
+  - Perceived muscle soreness / DOMS (1–10)
+  - Illness log
+    - Type (free text)
+    - Severity (1–10)
+    - Onset date
+    - Resolution date
+- Menstrual
+  - Cycle start date
+  - Period duration (days)
+  - Flow intensity (spotting / light / medium / heavy)
+  - Spotting (yes / no)
+  - Symptoms
+    - Cramps (1–10)
+    - Bloating (1–5)
+    - Breast tenderness (1–5)
+    - Headaches (1–10)
+    - Mood changes (free text)
+  - Ovulation date (estimated / confirmed)
+  - Cervical mucus consistency (dry / sticky / creamy / watery / egg white)
+  - PMS window (yes / no)
+- Substances
+  - Caffeine (mg)
+  - Alcohol (units)
+  - Nicotine / tobacco (mg nicotine)
+  - Cannabis (mg THC / mg CBD)
+  - CBD isolated (mg)
+  - Psychedelics (mg / dose unit)
+  - Nootropics (mg)
+  - Other (free text, mg)
+- Supplements & medications
+  - Supplement name (free text)
+  - Supplement dose (mg / µg / IU)
+  - Supplement timing (time of day)
+  - Medication name (free text)
+  - Medication dose (mg)
+  - Medication timing (time of day)
+- Lifestyle
+  - Sexual activity (yes / no)
+  - Routine adherence
+    - Morning routine (% completed)
+    - Evening routine (% completed)
+  - Hobby / leisure activity (free text)
+  - Recovery score self-reported (1–10)
+
+---
+
+## Attributes
+*Slow-changing facts, versioned over time — one new row per measurement*
+
+- Body
+  - Weight (kg)
+  - Height (cm)
+  - Body fat % (%)
+  - Lean muscle mass (kg)
+  - Bone density DEXA (g/cm²)
+  - Hydration level / body water % (%)
+  - Resting metabolic rate / RMR (kcal/day)
+  - Measurements
+    - Waist (cm)
+    - Hips (cm)
+    - Chest (cm)
+    - Left arm (cm)
+    - Right arm (cm)
+    - Left thigh (cm)
+    - Right thigh (cm)
+    - Neck (cm)
+    - Shoulders (cm)
+- Fitness
+  - VO2 max (mL/kg/min)
+  - Lung vital capacity (L)
+  - Grip strength left (kg)
+  - Grip strength right (kg)
+  - Flexibility assessment (free text)
+  - FTP cycling (W)
+  - Resting heart rate baseline (bpm)
+  - Recovery score baseline (1–10)
+- Blood & hormones
+  - Blood lipid profile (mmol/L)
+  - Cholesterol total (mmol/L)
+  - HDL cholesterol (mmol/L)
+  - LDL cholesterol (mmol/L)
+  - Triglycerides (mmol/L)
+  - Fasting blood glucose baseline (mmol/L)
+  - HbA1c (mmol/mol)
+- Personal
+  - Chronotype (morning / evening / neutral)
+  - IQ (score)
+  - Contraceptive method (free text)
+  - Cycle length average (days)
+- Injuries
+  - Location (body region)
+  - Severity (1–10)
+  - Onset date
+  - Recovery duration (days)
+  - Status (active / recovered)
+
+---
+
+> **Derived metrics** — never stored, always computed: BMI, TDEE, ATL/CTL, training load, productivity %, sleep debt, cycle predictions, and any other value that is a formula applied to stored data.
