@@ -4,6 +4,10 @@
 
 > This document outlines what metrics open-health-server tracks, categorised into umbrella groups.
 
+## Notes on metric tracking
+
+Metrics will be saved in the Metric system, not the Imperial. Base 10 metrics are easier to deal with and are easier to integrate into external services.
+
 ## 1. Body composition
 - Weight
 - BMI

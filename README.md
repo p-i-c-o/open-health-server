@@ -1,4 +1,4 @@
-# open-health-server
+![open-health-server banner image](github-banner.png)
 
 <!-- =========================
      STATUS BADGES
