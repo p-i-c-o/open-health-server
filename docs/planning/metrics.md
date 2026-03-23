@@ -282,6 +282,17 @@ Metrics will be saved in the Metric system, not the Imperial. Base 10 metrics ar
     - Severity (1–10)
     - Onset date
     - Resolution date
+- Dental & oral health
+  - Brushing event (yes / no)
+  - Brushing duration (s)
+  - Flossing event (yes / no)
+  - Mouthwash use (yes / no)
+  - Tongue cleaning (yes / no)
+  - Tooth pain (1–10)
+  - Gum bleeding (yes / no)
+  - Tooth sensitivity (1–10)
+  - Dentist visit type (check-up / cleaning / procedure)
+  - Procedure notes (free text)
 - Menstrual
   - Cycle start date
   - Period duration (days)
@@ -360,6 +371,12 @@ Metrics will be saved in the Metric system, not the Imperial. Base 10 metrics ar
   - Triglycerides (mmol/L)
   - Fasting blood glucose baseline (mmol/L)
   - HbA1c (mmol/mol)
+- Dental baseline
+  - Orthodontics status (none / active / retainer)
+  - Wisdom teeth status (intact / partial removal / full removal)
+  - Last dental check-up date
+  - Last hygiene cleaning date
+  - Known active cavities (count)
 - Personal
   - Chronotype (morning / evening / neutral)
   - IQ (score)
