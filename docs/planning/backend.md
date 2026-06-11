@@ -1,9 +1,14 @@
-[Go back to planning home](README.md)
+[Repo Home](../../README.md) / [Docs](../README.md) / [Planning](README.md) / Backend
 
 # Backend
 
 > This document outlines how the backend of open-health-server works.
 
+See [Metric Taxonomy and Schema](metric-taxonomy-and-schema.md) for the planning notes behind metric definitions, canonical units, validation, source mappings, and raw imported payloads.
+
+See [Schema V1](schema-v1.md) for the first implementation-oriented database shape.
+
+See [Implementation Timeline](implementation-timeline.md) for the intended order of backend implementation phases.
 
 ## Data Storage Design
 **FK**: Foreign Key (person identifier)

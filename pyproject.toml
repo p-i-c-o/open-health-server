@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "open-health-server"
+version = "0.1.0"
+description = "Self-hostable service for tracking health, lifestyle, and activity data."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "alembic>=1.14.0",
+  "fastapi>=0.115.0",
+  "psycopg[binary]>=3.2.0",
+  "pydantic-settings>=2.6.0",
+  "sqlalchemy>=2.0.0",
+  "uvicorn[standard]>=0.32.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["backend*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

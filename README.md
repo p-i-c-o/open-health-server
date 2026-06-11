@@ -68,7 +68,10 @@
 - [ ] Plan front-end logic
 
 ## Docs
-Available [here](docs/README.md)
+
+- [Documentation](docs/README.md)
+- [Catalog](catalog/README.md)
+- [Backend App](backend/README.md)
 
 <!-- ## Results
 - **What works:** [bullet list]

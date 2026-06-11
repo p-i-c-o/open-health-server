@@ -1,6 +1,9 @@
-[Go back to planning home](README.md)
+[Repo Home](../../README.md) / [Docs](../README.md) / [Planning](README.md) / Identity Management
+
 # Identity Management
 > This document outlines how the open-health-server manages access and identities
+
+See [Metric Taxonomy and Schema](metric-taxonomy-and-schema.md) for how metrics are attached to persons independently of user accounts.
 
 Open-health-server manages identity management in two separate realms: users and persons.
 
@@ -19,3 +22,9 @@ One user can access the metrics of multiple persons. This could be useful for a 
 Many users could access the metrics of a single person. This could be beneficial when multiple sport coaches (working independently) could access the health metrics of one person (the client).
 ### Proxy access
 A user can log data on behalf of a person who has no user account. This is useful for logging data for a child, a patient, or an athlete who does not manage their own account.
+
+## Related docs
+
+- [Metric Taxonomy and Schema](metric-taxonomy-and-schema.md)
+- [Metrics](metrics.md)
+- [Backend](backend.md)

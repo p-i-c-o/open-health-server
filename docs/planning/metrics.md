@@ -1,9 +1,12 @@
-[Go back to planning home](README.md)
+[Repo Home](../../README.md) / [Docs](../README.md) / [Planning](README.md) / Metrics
+
 # Metrics
 > This document outlines what metrics open-health-server tracks, categorised into umbrella groups.
 ## Notes on metric tracking
 Metrics will be saved in the Metric system, not the Imperial. Base 10 metrics are easier to deal with and are easier to integrate into external services.
 > Metrics are broken into 4 different types. **Samples** are continuous time-series measurements. **Sessions** are activities with a start and end. **Logs** are discrete one-time entries. **Attributes** are slow-changing facts about a person, versioned over time. Derived metrics (BMI, productivity %, ATL/CTL, etc.) are computed at query time and never stored.
+
+See [Metric Taxonomy and Schema](metric-taxonomy-and-schema.md) for the design notes on canonical metric keys, units, source mappings, custom metrics, and raw imported data.
 
 ---
 

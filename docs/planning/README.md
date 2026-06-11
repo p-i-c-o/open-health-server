@@ -1,4 +1,4 @@
-[Go back to documentation home](../README.md)
+[Repo Home](../../README.md) / [Docs](../README.md) / Planning
 
 # Planning
 
@@ -8,6 +8,12 @@ open-health-server will track [metrics](metrics.md) that pertain to human health
 Available files:
 
 - [Metrics](metrics.md)
+- [Metric Taxonomy and Schema](metric-taxonomy-and-schema.md)
+- [Schema V1](schema-v1.md)
+- [Implementation Timeline](implementation-timeline.md)
+- [Current Implementation State](current-implementation-state.md)
+- [Session Handoff 2026-06-11](session-handoff-2026-06-11.md)
 - [Integrations](integrations.md)
 - [Backend](backend.md)
 - [Identity Management](identity-management.md)
+- [Dev Notes](dev-notes.md)
